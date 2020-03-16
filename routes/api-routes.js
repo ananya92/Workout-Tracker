@@ -18,6 +18,14 @@ module.exports = function(app) {
 			{$push:{exercises: req.body}}
 		).then(function(dbExercise) {
 			console.log('Exercise added', dbExercise);
+			// Update the totalDuration of the workout on adding a new exercise
+			Workout.findOneAndUpdate(
+				{_id: mongoose.Types.ObjectId(req.params.id)}, 
+				{$inc:{totalDuration: req.body.duration}}
+			).then(function(dbDuration) {
+				console.log('Updated totalDuration ' + dbDuration);
+				res.json(dbExercise);
+			});
 		})
 		.catch(err => {
 			res.json(err);
