@@ -10,6 +10,19 @@ module.exports = function(app) {
 			res.json(err);
 		});
 	});
+	
+	//Adding exercise for a particular workout id
+	app.put("/api/workouts/:id", function(req, res) {
+		Workout.findOneAndUpdate(
+			{_id: mongoose.Types.ObjectId(req.params.id)}, 
+			{$push:{exercises: req.body}}
+		).then(function(dbExercise) {
+			console.log('Exercise added', dbExercise);
+		})
+		.catch(err => {
+			res.json(err);
+		});
+	});
 
 	//Create a new workout. Generating a new workout ID
 	app.post("/api/workouts", function(req, res) {
