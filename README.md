@@ -25,4 +25,10 @@ A consumer will reach their fitness goals quicker when they track their workout 
 
 Deployed on Heroku: https://arcane-everglades-43912.herokuapp.com
 
+## Application Screenshots
+
+![Project Snapshot](https://github.com/ananya92/My-Portfolio/blob/master/src/components/projects/img/pr5_1.PNG)
+***
+![Project Snapshot](https://github.com/ananya92/My-Portfolio/blob/master/src/components/projects/img/pr5_2.png)
+
 
